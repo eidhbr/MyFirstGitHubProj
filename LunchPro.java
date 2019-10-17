@@ -8,6 +8,7 @@ public class LunchPro{
 		String[] dishNames = {"红烧带鱼","宫保鸡丁","时令蔬菜"};
 		double[] prices = {56,24,18};
 		int[] praiseNums = new int[3];
+		
 		//订单:订单人,餐品信息,送餐时间,送餐地址,总金额,订单状态
 		String[] orderForm = {"序号","订餐人","餐品信息","送餐时间","送餐地址","总金额","订单状态"};
 		String[] names = new String[5];
@@ -16,6 +17,7 @@ public class LunchPro{
 		String[] addresses = new String[5];
 		double[] sumPrices = new double[5];
 		int[] states = new int[5];//0:已预定,1:已完成
+		
 		//系统用
 		String[] manu = {"我要订餐","查看餐袋","签收订单","删除订单","我要点赞","退出系统"};
 		Scanner input = new Scanner(System.in);
@@ -25,7 +27,6 @@ public class LunchPro{
 		int dishSeq,dishNum,time,state,signNum,delNum,praiseSeq;
 		int orderSeq = 0;
 		double sumPrice;
-		
 		
 		
 		//先搭建整体框架,根据需要定义数据主题
@@ -43,6 +44,7 @@ public class LunchPro{
 				System.out.print("*");
 			}
 			System.out.println("");
+			
 			//若输入非1到6数字,则重复选择
 			while(true){
 				System.out.print("选择数字(1-6):");
@@ -57,7 +59,6 @@ public class LunchPro{
 			
 
 			//根据选择的数字进入不同情况
-			
 			switch(menuNum){
 				case 1:
 					//显示标题
@@ -115,7 +116,6 @@ public class LunchPro{
 					System.out.println("送餐时间:"+times[orderSeq-1]+"点");
 					System.out.println("餐费:"+sumPrices[orderSeq-1]+"元");
 					
-					
 					//输入0返回,否则再输入
 					while(true){
 						System.out.print("输入0返回:");
@@ -130,8 +130,6 @@ public class LunchPro{
 					continue;
 					
 					
-					
-					
 				case 2:
 					for(int i=0;i<=39;i++){
 						System.out.print("*");
@@ -142,6 +140,7 @@ public class LunchPro{
 							System.out.println("");
 						}
 					}
+					
 					//显示餐袋
 					for(int i=0;i<=6;i++){
 						System.out.print(orderForm[i]+"\t\t");
@@ -163,8 +162,6 @@ public class LunchPro{
 							System.out.println("已完成"+"\t\t");
 						}
 					}
-					
-					
 					
 					while(true){
 						System.out.print("输入0返回:");
@@ -190,6 +187,7 @@ public class LunchPro{
 						}
 					}
 					
+					//餐袋指定订单变为已完成
 					System.out.print("输入签收的订单序号:");
 					signNum = input.nextInt();
 					states[signNum-1] = 1;
@@ -206,6 +204,8 @@ public class LunchPro{
 						}
 					}
 					continue;
+					
+					
 				case 4:
 					for(int i=0;i<=39;i++){
 						System.out.print("*");
@@ -217,6 +217,7 @@ public class LunchPro{
 						}
 					}
 					
+					//删除指定订单,后面订单前移,最后一个赋值为null和0
 					System.out.print("输入删除的订单号:");
 					delNum = input.nextInt();
 					
@@ -234,7 +235,7 @@ public class LunchPro{
 					addresses[orderSeq-1] = null;
 					sumPrices[orderSeq-1] = 0;
 					states[orderSeq-1] = 0;
-					orderSeq--;
+					orderSeq--;//订单总数-1,不改会影响1,2功能
 					
 					while(true){
 						System.out.print("输入0返回:");
@@ -247,6 +248,8 @@ public class LunchPro{
 						}
 					}
 					continue;
+					
+					
 				case 5:
 					for(int i=0;i<=39;i++){
 						System.out.print("*");
@@ -258,6 +261,7 @@ public class LunchPro{
 						}
 					}
 					
+					//指定菜点赞数+1
 					System.out.print("输入点赞菜单序号:");
 					praiseSeq = input.nextInt();
 					praiseNums[praiseSeq-1]++;
@@ -274,37 +278,13 @@ public class LunchPro{
 						}
 					}
 					continue;
+					
+					
 				case 6:
 					flag = false;
-					break;//这个break只能跳出switch,continue对switch无效,是外面一层循环跳到下一轮
-				
-					
+					break;//这个break只能跳出switch,continue对switch无效,是外面一层循环跳到下一轮		
 			}
-			
-			
 		}
-
 		System.out.print("谢谢使用");
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
 }
