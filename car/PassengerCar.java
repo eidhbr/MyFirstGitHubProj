@@ -3,29 +3,19 @@ package xiao.car;
 public class PassengerCar extends Car {
 	private String seating;
 	public void setCar(int brandNum,int detailNum){
-		if(brandNum==1){
-			this.setBrand("金龙");
-			if(detailNum==1){
-				this.seating = "16座";
-				this.setLisence("京8696997");
-				this.setDayPrice(800);
-			}else{
-				this.seating = "34座";
-				this.setLisence("京8696998");
-				this.setDayPrice(1500);
-			}
-		}else{
-			this.setBrand("金杯");
-			if(detailNum==1){
-				this.seating = "16座";
-				this.setLisence("京6566754");
-				this.setDayPrice(800);
-			}else{
-				this.seating = "34座";
-				this.setLisence("京9999999");
-				this.setDayPrice(1500);
-			}
-		}
+		int[][] priceList = new int[2][];
+		String[] brandList = new String[]{"金龙","金杯"};
+		String[] seatingList = new String[]{"16座","34座"};
+		
+		String[][] licenseList = new String[][]{{"京8696997","京8696998"},{"京6566754","京9999999"}};
+
+		int[] priList = new int[]{800,1500};
+		
+		this.setBrand(brandList[brandNum-1]);
+		this.seating = seatingList[detailNum-1];
+		this.setLisence(licenseList[brandNum-1][detailNum-1]);
+		this.setDayPrice(priList[detailNum-1]);
+		
 	}
 	
 	public void setSeating(String seating){

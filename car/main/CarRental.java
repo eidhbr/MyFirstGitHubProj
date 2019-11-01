@@ -98,47 +98,13 @@ public class CarRental {
 			Car myCar = null;
 			
 			//根据车类型，品牌，型号/座位数构建对象
+			if(typeNum==1){
+				myCar = new SaloonCar();
+			}else if(typeNum==2){
+				myCar = new PassengerCar();
+			}
+			myCar.setCar(brandNum,detailNum);
 			switch(detailNum){
-				case 1:
-					if(typeNum==1){
-						if(brandNum==1){
-							myCar = new SaloonCar();
-							myCar.setCar(1,1);
-						}else{
-							myCar = new SaloonCar();
-							myCar.setCar(2,1);
-						}	
-					}else{
-						if(brandNum==1){
-							myCar = new PassengerCar();
-							myCar.setCar(1,1);
-						}else{
-							myCar = new PassengerCar();
-							myCar.setCar(2,1);
-						}	
-					}
-					
-					break;
-				case 2:
-					if(typeNum==1){
-						if(brandNum==1){
-							myCar = new SaloonCar();
-							myCar.setCar(1,2);
-						}else{
-							myCar = new SaloonCar();
-							myCar.setCar(2,2);
-						}	
-					}else{
-						if(brandNum==1){
-							myCar = new PassengerCar();
-							myCar.setCar(1,2);
-						}else{
-							myCar = new PassengerCar();
-							myCar.setCar(2,2);
-						}
-					}
-					
-					break;
 				case 3:
 					continue;
 				case 0:
@@ -157,7 +123,7 @@ public class CarRental {
 				+"\t车牌号:"+saloonCar.getLisence()+"\t\t日租金为:"+saloonCar.getDayPrice());
 			}else{
 				PassengerCar passengerCar = (PassengerCar)myCar;
-				System.out.println("租车类型:轿车"+"\t车的品牌:"+passengerCar.getBrand()+"\t车座数:"+passengerCar.getSeating()
+				System.out.println("租车类型:客车"+"\t车的品牌:"+passengerCar.getBrand()+"\t车座数:"+passengerCar.getSeating()
 				+"\t车牌号:"+passengerCar.getLisence()+"\t\t日租金为:"+passengerCar.getDayPrice()+"元");
 			}
 			
