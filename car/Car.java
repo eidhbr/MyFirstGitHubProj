@@ -25,7 +25,9 @@ public abstract class Car {
 		this.dayPrice = dayPrice;
 	}
 	
+	//设置车的各个属性
 	public abstract void setCar(int brandNum,int detailNum);
+	//根据租期返回总金额
 	public abstract double totalPrice(int rentDay);
 
 }
